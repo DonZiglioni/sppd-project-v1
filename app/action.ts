@@ -1,11 +1,16 @@
-// "use server"
+"use server"
 
-// const fetchAnime = async () => {
-//     const response = await fetch('https://shikimori.one/api/animes')
-//     const data = response.json()
-//     console.log(data);
+import { promises as fs } from 'fs';
 
-//     return data
-// }
+const sortCardsByTheme = async () => {
 
-// export default fetchAnime
+    const file = await fs.readFile(process.cwd() + '/app/cards.json', 'utf8')
+
+    const data = JSON.parse(file);
+
+    console.log(data[0]);
+
+    return 2
+}
+
+export default sortCardsByTheme
