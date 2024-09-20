@@ -49,8 +49,32 @@ const LevelComponent = ({
     const [maxHealth5, setMaxHealth5] = useState(0);
     const [maxDmg6, setMaxDmg6] = useState(0);
     const [maxHealth6, setMaxHealth6] = useState(0);
-
-
+    const [startingPower1, setStartingPower1] = useState(basePow);
+    const [startingHeal1, setStartingHeal1] = useState(basePowHeal);
+    const [startingPower2, setStartingPower2] = useState(basePow);
+    const [startingHeal2, setStartingHeal2] = useState(basePowHeal);
+    const [startingPower3, setStartingPower3] = useState(basePow);
+    const [startingHeal3, setStartingHeal3] = useState(basePowHeal);
+    const [startingPower4, setStartingPower4] = useState(basePow);
+    const [startingHeal4, setStartingHeal4] = useState(basePowHeal);
+    const [startingPower5, setStartingPower5] = useState(basePow);
+    const [startingHeal5, setStartingHeal5] = useState(basePowHeal);
+    const [startingPower6, setStartingPower6] = useState(basePow);
+    const [startingHeal6, setStartingHeal6] = useState(basePowHeal);
+    const [startingPower7, setStartingPower7] = useState(basePow);
+    const [startingHeal7, setStartingHeal7] = useState(basePowHeal);
+    const [maxPow1, setMaxPow1] = useState(0);
+    const [maxPowHeal1, setMaxPowHeal1] = useState(0);
+    const [maxPow2, setMaxPow2] = useState(0);
+    const [maxPowHeal2, setMaxPowHeal2] = useState(0);
+    const [maxPow3, setMaxPow3] = useState(0);
+    const [maxPowHeal3, setMaxPowHeal3] = useState(0);
+    const [maxPow4, setMaxPow4] = useState(0);
+    const [maxPowHeal4, setMaxPowHeal4] = useState(0);
+    const [maxPow5, setMaxPow5] = useState(0);
+    const [maxPowHeal5, setMaxPowHeal5] = useState(0);
+    const [maxPow6, setMaxPow6] = useState(0);
+    const [maxPowHeal6, setMaxPowHeal6] = useState(0);
 
     const levelUp = () => {
         let tempDmg = baseD;
@@ -58,7 +82,12 @@ const LevelComponent = ({
         let tempPow = basePow;
         let tempPowHeal = basePowHeal;
 
-        const evolve = (tempDmg: number, tempHealth: number, level: number) => {
+        const evolve = (
+            tempDmg: number,
+            tempHealth: number,
+            level: number,
+
+        ) => {
             let newDamage = tempDmg;
             let newHealth = tempHealth;
             console.log("Evolving...");
@@ -114,6 +143,10 @@ const LevelComponent = ({
                 console.log("Before Lvl 2 Dmg:", tempDmg, "Health:", tempHealth);
                 setMaxDmg1(tempDmg)
                 setMaxHealth1(tempHealth)
+                setMaxPowHeal1(tempPowHeal)
+                setStartingHeal2(tempPowHeal)
+                setMaxPow1(tempPow)
+                setStartingPower2(tempPow)
                 const { newDamage, newHealth } = evolve(tempDmg, tempHealth, 2)
                 tempDmg = newDamage;
                 tempHealth = newHealth;
@@ -130,6 +163,10 @@ const LevelComponent = ({
             }
             if (e.property === 'PowerHealAbs') {
                 tempPowHeal = tempPowHeal + e.value;
+                console.log("Heal +", e.value);
+            }
+            if (e.property === 'PowerDamageAbs') {
+                tempPow = tempPow + e.value;
                 console.log("Power +", e.value);
             }
         }
@@ -140,6 +177,10 @@ const LevelComponent = ({
                 console.log("Before Lvl 3 Dmg:", tempDmg, "Health:", tempHealth);
                 setMaxDmg2(tempDmg)
                 setMaxHealth2(tempHealth)
+                setMaxPowHeal2(tempPowHeal)
+                setStartingHeal3(tempPowHeal)
+                setMaxPow2(tempPow)
+                setStartingPower3(tempPow)
                 const { newDamage, newHealth } = evolve(tempDmg, tempHealth, 3)
                 tempDmg = newDamage;
                 tempHealth = newHealth;
@@ -157,6 +198,10 @@ const LevelComponent = ({
                 tempPowHeal = tempPowHeal + e.value;
                 console.log("Power +", e.value);
             }
+            if (e.property === 'PowerDamageAbs') {
+                tempPow = tempPow + e.value;
+                console.log("Power +", e.value);
+            }
             // console.log(e, tempDmg, tempHealth);
         }
 
@@ -166,6 +211,10 @@ const LevelComponent = ({
                 console.log("Before Lvl 4 Dmg:", tempDmg, "Health:", tempHealth);
                 setMaxDmg3(tempDmg)
                 setMaxHealth3(tempHealth)
+                setMaxPowHeal3(tempPowHeal)
+                setStartingHeal4(tempPowHeal)
+                setMaxPow3(tempPow)
+                setStartingPower4(tempPow)
                 const { newDamage, newHealth } = evolve(tempDmg, tempHealth, 4)
                 tempDmg = newDamage;
                 tempHealth = newHealth;
@@ -183,6 +232,10 @@ const LevelComponent = ({
                 tempPowHeal = tempPowHeal + e.value;
                 console.log("Power +", e.value);
             }
+            if (e.property === 'PowerDamageAbs') {
+                tempPow = tempPow + e.value;
+                console.log("Power +", e.value);
+            }
         }
 
         for (let i = 24; i <= 39; i++) {
@@ -191,6 +244,10 @@ const LevelComponent = ({
                 console.log("Before Lvl 5 Dmg:", tempDmg, "Health:", tempHealth);
                 setMaxDmg4(tempDmg)
                 setMaxHealth4(tempHealth)
+                setMaxPowHeal4(tempPowHeal)
+                setStartingHeal5(tempPowHeal)
+                setMaxPow4(tempPow)
+                setStartingPower5(tempPow)
                 const { newDamage, newHealth } = evolve(tempDmg, tempHealth, 5)
                 tempDmg = newDamage;
                 tempHealth = newHealth;
@@ -208,6 +265,10 @@ const LevelComponent = ({
                 tempPowHeal = tempPowHeal + e.value;
                 console.log("Power +", e.value);
             }
+            if (e.property === 'PowerDamageAbs') {
+                tempPow = tempPow + e.value;
+                console.log("Power +", e.value);
+            }
         }
 
         for (let i = 39; i <= 54; i++) {
@@ -216,6 +277,10 @@ const LevelComponent = ({
                 console.log("Before Lvl 6 Dmg:", tempDmg, "Health:", tempHealth);
                 setMaxDmg5(tempDmg)
                 setMaxHealth5(tempHealth)
+                setMaxPowHeal5(tempPowHeal)
+                setStartingHeal6(tempPowHeal)
+                setMaxPow5(tempPow)
+                setStartingPower6(tempPow)
                 const { newDamage, newHealth } = evolve(tempDmg, tempHealth, 6)
                 tempDmg = newDamage;
                 tempHealth = newHealth;
@@ -233,6 +298,10 @@ const LevelComponent = ({
                 tempPowHeal = tempPowHeal + e.value;
                 console.log("Power +", e.value);
             }
+            if (e.property === 'PowerDamageAbs') {
+                tempPow = tempPow + e.value;
+                console.log("Power +", e.value);
+            }
         }
 
         for (let i = 54; i <= 69; i++) {
@@ -241,6 +310,10 @@ const LevelComponent = ({
                 console.log("Before Lvl 7 Dmg:", tempDmg, "Health:", tempHealth);
                 setMaxDmg6(tempDmg)
                 setMaxHealth6(tempHealth)
+                setMaxPowHeal6(tempPowHeal)
+                setStartingHeal7(tempPowHeal)
+                setMaxPow6(tempPow)
+                setStartingPower7(tempPow)
                 const { newDamage, newHealth } = evolve(tempDmg, tempHealth, 7)
                 tempDmg = newDamage;
                 tempHealth = newHealth;
@@ -258,6 +331,10 @@ const LevelComponent = ({
                 tempPowHeal = tempPowHeal + e.value;
                 console.log("Power +", e.value);
             }
+            if (e.property === 'PowerDamageAbs') {
+                tempPow = tempPow + e.value;
+                console.log("Power +", e.value);
+            }
         }
     }
 
@@ -265,176 +342,352 @@ const LevelComponent = ({
         levelUp()
     }, [])
 
-
-    // console.log("D:", baseD, " H:", baseH);
-    // {
-    //     basePow ? console.log("Pow:", basePow) : console.log("Heal:", basePowHeal);
-    // }
-
     return (
-        <div>
-            <div>
-                Level 1:
-                <div className='flex flex-row gap-x-4'>
-                    <div className='flex flex-col'>
-                        <div>
-                            Starting Damage:
-                            <span> {startingDmg1}</span>
+        <div className=' flex flex-col items-center h-auto bg-[rgba(0,0,255,.1)] mt-4 border-black rounded-lg shadow-lg shadow-black'>
+            <div className=' text-white w-full flex items-center justify-center text-sm border-b-2 border-t-2 border-[rgba(255,255,255,.4)] rounded-lg shadow-lg shadow-black '>
+                <div className='flex flex-row items-center gap-x-4 px-4'>
+                    <p >
+                        Level 1:
+                    </p>
+                    <div className='flex flex-col items-end'>
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            DAMAGE:
+                            <span className='font-bold text-lg text-blue-300'> {startingDmg1}</span>
                         </div>
-                        <div>
-                            Starting Health:
-                            <span> {startingHealth1}</span>
-                        </div>
-                    </div>
-                    <div className='flex flex-col'>
-                        <div>
-                            Maximum Damage:
-                            <span> {maxDmg1}</span>
-                        </div>
-                        <div>
-                            Maximum Health:
-                            <span> {maxHealth1}</span>
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            MAX DAMAGE:
+                            <span className='font-bold text-lg text-green-300'> {maxDmg1}</span>
                         </div>
                     </div>
+                    <div className='flex flex-col items-end'>
+
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            HEALTH:
+                            <span className='font-bold text-lg  text-blue-300'> {startingHealth1}</span>
+                        </div>
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            MAX HEALTH:
+                            <span className='font-bold text-lg text-green-300'> {maxHealth1}</span>
+                        </div>
+                    </div>
+
+                    {basePowHeal > 0 && (
+                        <div className='flex flex-col items-end'>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                HEAL:
+                                <span className='font-bold text-lg  text-blue-300'> {startingHeal1}</span>
+                            </div>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                MAX HEAL:
+                                <span className='font-bold text-lg text-green-300'> {maxPowHeal1}</span>
+                            </div>
+                        </div>
+                    )}
+                    {basePow > 0 && (
+                        <div className='flex flex-col items-end'>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                POWER:
+                                <span className='font-bold text-lg  text-blue-300'> {startingPower1}</span>
+                            </div>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                MAX POWER:
+                                <span className='font-bold text-lg text-green-300'> {maxPow1}</span>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
-            <div>
-                Level 2:
-                <div className='flex flex-row gap-x-4'>
-                    <div className='flex flex-col'>
-                        <div>
-                            Starting Damage:
-                            <span> {startingDmg2}</span>
+            <div className=' text-white w-full flex items-center justify-center text-sm border-b-2 border-t-2 border-[rgba(255,255,255,.4)] rounded-lg shadow-lg shadow-black '>
+                <div className='flex flex-row items-center gap-x-4 px-4'>
+                    <p >
+                        Level 2:
+                    </p>
+                    <div className='flex flex-col items-end'>
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            DAMAGE:
+                            <span className='font-bold text-lg text-blue-300'> {startingDmg2}</span>
                         </div>
-                        <div>
-                            Starting Health:
-                            <span> {startingHealth2}</span>
-                        </div>
-                    </div>
-                    <div className='flex flex-col'>
-                        <div>
-                            Maximum Damage:
-                            <span> {maxDmg2}</span>
-                        </div>
-                        <div>
-                            Maximum Health:
-                            <span> {maxHealth2}</span>
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            MAX DAMAGE:
+                            <span className='font-bold text-lg text-green-300'> {maxDmg2}</span>
                         </div>
                     </div>
+                    <div className='flex flex-col items-end'>
+
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            HEALTH:
+                            <span className='font-bold text-lg  text-blue-300'> {startingHealth2}</span>
+                        </div>
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            MAX HEALTH:
+                            <span className='font-bold text-lg text-green-300'> {maxHealth2}</span>
+                        </div>
+                    </div>
+
+                    {basePowHeal > 0 && (
+                        <div className='flex flex-col items-end'>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                HEAL:
+                                <span className='font-bold text-lg  text-blue-300'> {startingHeal2}</span>
+                            </div>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                MAX HEAL:
+                                <span className='font-bold text-lg text-green-300'> {maxPowHeal2}</span>
+                            </div>
+                        </div>
+                    )}
+                    {basePow > 0 && (
+                        <div className='flex flex-col items-end'>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                POWER:
+                                <span className='font-bold text-lg  text-blue-300'> {startingPower2}</span>
+                            </div>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                MAX POWER:
+                                <span className='font-bold text-lg text-green-300'> {maxPow2}</span>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
-            <div>
-                Level 3:
-                <div className='flex flex-row gap-x-4'>
-                    <div className='flex flex-col'>
-                        <div>
-                            Starting Damage:
-                            <span> {startingDmg3}</span>
+            <div className=' text-white w-full flex items-center justify-center text-sm border-b-2 border-t-2 border-[rgba(255,255,255,.4)] rounded-lg shadow-lg shadow-black '>
+                <div className='flex flex-row items-center gap-x-4 px-4'>
+                    <p >
+                        Level 3:
+                    </p>
+                    <div className='flex flex-col items-end'>
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            DAMAGE:
+                            <span className='font-bold text-lg text-blue-300'> {startingDmg3}</span>
                         </div>
-                        <div>
-                            Starting Health:
-                            <span> {startingHealth3}</span>
-                        </div>
-                    </div>
-                    <div className='flex flex-col'>
-                        <div>
-                            Maximum Damage:
-                            <span> {maxDmg3}</span>
-                        </div>
-                        <div>
-                            Maximum Health:
-                            <span> {maxHealth3}</span>
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            MAX DAMAGE:
+                            <span className='font-bold text-lg text-green-300'> {maxDmg3}</span>
                         </div>
                     </div>
+                    <div className='flex flex-col items-end'>
+
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            HEALTH:
+                            <span className='font-bold text-lg  text-blue-300'> {startingHealth3}</span>
+                        </div>
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            MAX HEALTH:
+                            <span className='font-bold text-lg text-green-300'> {maxHealth3}</span>
+                        </div>
+                    </div>
+
+                    {basePowHeal > 0 && (
+                        <div className='flex flex-col items-end'>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                HEAL:
+                                <span className='font-bold text-lg  text-blue-300'> {startingHeal3}</span>
+                            </div>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                MAX HEAL:
+                                <span className='font-bold text-lg text-green-300'> {maxPowHeal3}</span>
+                            </div>
+                        </div>
+                    )}
+                    {basePow > 0 && (
+                        <div className='flex flex-col items-end'>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                POWER:
+                                <span className='font-bold text-lg  text-blue-300'> {startingPower3}</span>
+                            </div>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                MAX POWER:
+                                <span className='font-bold text-lg text-green-300'> {maxPow3}</span>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
-            <div>
-                Level 4:
-                <div className='flex flex-row gap-x-4'>
-                    <div className='flex flex-col'>
-                        <div>
-                            Starting Damage:
-                            <span> {startingDmg4}</span>
+            <div className=' text-white w-full flex items-center justify-center text-sm border-b-2 border-t-2 border-[rgba(255,255,255,.4)] rounded-lg shadow-lg shadow-black '>
+                <div className='flex flex-row items-center gap-x-4 px-4'>
+                    <p >
+                        Level 4:
+                    </p>
+                    <div className='flex flex-col items-end'>
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            DAMAGE:
+                            <span className='font-bold text-lg text-blue-300'> {startingDmg4}</span>
                         </div>
-                        <div>
-                            Starting Health:
-                            <span> {startingHealth4}</span>
-                        </div>
-                    </div>
-                    <div className='flex flex-col'>
-                        <div>
-                            Maximum Damage:
-                            <span> {maxDmg4}</span>
-                        </div>
-                        <div>
-                            Maximum Health:
-                            <span> {maxHealth4}</span>
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            MAX DAMAGE:
+                            <span className='font-bold text-lg text-green-300'> {maxDmg4}</span>
                         </div>
                     </div>
+                    <div className='flex flex-col items-end'>
+
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            HEALTH:
+                            <span className='font-bold text-lg  text-blue-300'> {startingHealth4}</span>
+                        </div>
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            MAX HEALTH:
+                            <span className='font-bold text-lg text-green-300'> {maxHealth4}</span>
+                        </div>
+                    </div>
+
+                    {basePowHeal > 0 && (
+                        <div className='flex flex-col items-end'>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                HEAL:
+                                <span className='font-bold text-lg  text-blue-300'> {startingHeal4}</span>
+                            </div>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                MAX HEAL:
+                                <span className='font-bold text-lg text-green-300'> {maxPowHeal4}</span>
+                            </div>
+                        </div>
+                    )}
+                    {basePow > 0 && (
+                        <div className='flex flex-col items-end'>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                POWER:
+                                <span className='font-bold text-lg  text-blue-300'> {startingPower4}</span>
+                            </div>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                MAX POWER:
+                                <span className='font-bold text-lg text-green-300'> {maxPow4}</span>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
-            <div>
-                Level 5:
-                <div className='flex flex-row gap-x-4'>
-                    <div className='flex flex-col'>
-                        <div>
-                            Starting Damage:
-                            <span> {startingDmg5}</span>
+            <div className=' text-white w-full flex items-center justify-center text-sm border-b-2 border-t-2 border-[rgba(255,255,255,.4)] rounded-lg shadow-lg shadow-black '>
+                <div className='flex flex-row items-center gap-x-4 px-4'>
+                    <p >
+                        Level 5:
+                    </p>
+                    <div className='flex flex-col items-end'>
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            DAMAGE:
+                            <span className='font-bold text-lg text-blue-300'> {startingDmg5}</span>
                         </div>
-                        <div>
-                            Starting Health:
-                            <span> {startingHealth5}</span>
-                        </div>
-                    </div>
-                    <div className='flex flex-col'>
-                        <div>
-                            Maximum Damage:
-                            <span> {maxDmg5}</span>
-                        </div>
-                        <div>
-                            Maximum Health:
-                            <span> {maxHealth5}</span>
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            MAX DAMAGE:
+                            <span className='font-bold text-lg text-green-300'> {maxDmg5}</span>
                         </div>
                     </div>
+                    <div className='flex flex-col items-end'>
+
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            HEALTH:
+                            <span className='font-bold text-lg  text-blue-300'> {startingHealth5}</span>
+                        </div>
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            MAX HEALTH:
+                            <span className='font-bold text-lg text-green-300'> {maxHealth5}</span>
+                        </div>
+                    </div>
+
+                    {basePowHeal > 0 && (
+                        <div className='flex flex-col items-end'>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                HEAL:
+                                <span className='font-bold text-lg  text-blue-300'> {startingHeal5}</span>
+                            </div>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                MAX HEAL:
+                                <span className='font-bold text-lg text-green-300'> {maxPowHeal5}</span>
+                            </div>
+                        </div>
+                    )}
+                    {basePow > 0 && (
+                        <div className='flex flex-col items-end'>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                POWER:
+                                <span className='font-bold text-lg  text-blue-300'> {startingPower5}</span>
+                            </div>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                MAX POWER:
+                                <span className='font-bold text-lg text-green-300'> {maxPow5}</span>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
-            <div>
-                Level 6:
-                <div className='flex flex-row gap-x-4'>
-                    <div className='flex flex-col'>
-                        <div>
-                            Starting Damage:
-                            <span> {startingDmg6}</span>
+            <div className=' text-white w-full flex items-center justify-center text-sm border-b-2 border-t-2 border-[rgba(255,255,255,.4)] rounded-lg shadow-lg shadow-black '>
+                <div className='flex flex-row items-center gap-x-4 px-4'>
+                    <p >
+                        Level 6:
+                    </p>
+                    <div className='flex flex-col items-end'>
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            DAMAGE:
+                            <span className='font-bold text-lg text-blue-300'> {startingDmg6}</span>
                         </div>
-                        <div>
-                            Starting Health:
-                            <span> {startingHealth6}</span>
-                        </div>
-                    </div>
-                    <div className='flex flex-col'>
-                        <div>
-                            Maximum Damage:
-                            <span> {maxDmg6}</span>
-                        </div>
-                        <div>
-                            Maximum Health:
-                            <span> {maxHealth6}</span>
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            MAX DAMAGE:
+                            <span className='font-bold text-lg text-green-300'> {maxDmg6}</span>
                         </div>
                     </div>
+                    <div className='flex flex-col items-end'>
+
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            HEALTH:
+                            <span className='font-bold text-lg  text-blue-300'> {startingHealth6}</span>
+                        </div>
+                        <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                            MAX HEALTH:
+                            <span className='font-bold text-lg text-green-300'> {maxHealth6}</span>
+                        </div>
+                    </div>
+
+                    {basePowHeal > 0 && (
+                        <div className='flex flex-col items-end'>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                HEAL:
+                                <span className='font-bold text-lg  text-blue-300'> {startingHeal6}</span>
+                            </div>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                MAX HEAL:
+                                <span className='font-bold text-lg text-green-300'> {maxPowHeal6}</span>
+                            </div>
+                        </div>
+                    )}
+                    {basePow > 0 && (
+                        <div className='flex flex-col items-end'>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                POWER:
+                                <span className='font-bold text-lg  text-blue-300'> {startingPower6}</span>
+                            </div>
+                            <div className='-my-0.5 text-xs mr-2 text-gray-300'>
+                                MAX POWER:
+                                <span className='font-bold text-lg text-green-300'> {maxPow6}</span>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
-            <div>
-                Level 6:
-                <div className='flex flex-row gap-x-4'>
-                    <div className='flex flex-col'>
-                        <div>
-                            MAX Damage:
-                            <span> {startingDmg7}</span>
+            <div className=' text-white w-full flex items-center justify-center text-sm border-b-2 border-t-2 border-[rgba(255,255,255,.4)] rounded-lg shadow-lg shadow-black '>
+                <div className='flex flex-row items-center gap-x-4 px-4'>
+                    <p >
+                        Level 7:
+                    </p>
+                    <div className='flex flex-row gap-x-4 my-4 items-end'>
+                        <div className='text-gray-300 -my-0.5 text-xs mr-2'>
+                            MAX DAMAGE:
+                            <span className='font-bold text-xl text-red-300'> {startingDmg7}</span>
                         </div>
-                        <div>
-                            MAX Health:
-                            <span> {startingHealth7}</span>
+                        <div className='text-gray-300 -my-0.5 text-xs mr-2'>
+                            MAX HEALTH:
+                            <span className='font-bold text-xl text-red-300'> {startingHealth7}</span>
                         </div>
+                        {basePow > 0 && (
+                            <div className='text-gray-300 -my-0.5 text-xs mr-2'>
+                                MAX POWER:
+                                <span className='font-bold text-xl text-red-300'> {startingPower7}</span>
+                            </div>
+                        )}
+                        {basePowHeal > 0 && (
+                            <div className='text-gray-300 -my-0.5 text-xs mr-2'>
+                                MAX HEAL:
+                                <span className='font-bold text-xl text-red-300'> {startingHeal7}</span>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

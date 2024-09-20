@@ -11,6 +11,7 @@ import {
 } from "../components/ui/animated-modal";
 
 import React from 'react'
+import LevelComponent from "./LevelComponent";
 //import { AccordionDemo } from "./AccordionComponent";
 
 
@@ -55,9 +56,7 @@ const TabsComponent = ({
                     <h1 className="text-center font-semibold text-white pt-14"></h1>
                     <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-14 gap-x-4">
                         {neutralCards.map((item: any, index: number) => (
-
                             <Modal key={index}>
-
                                 <ModalTrigger>
                                     <div className='flex items-center flex-col justify-center h-[400px] w-full' key={index}>
                                         <GlareCard className="flex flex-col items-center justify-center">
@@ -85,90 +84,64 @@ const TabsComponent = ({
                                         </div>
                                         <div className="flex flex-col justify-center items-center">
                                             <p className="text-white">Attack Range:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.AttackRange}
                                                 </span>
                                             </p>
                                             <p className="text-white">Attack Speed:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.TimeInBetweenAttacks}
                                                 </span>
                                             </p>
                                             <p className="text-white">Base Damage:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.Damage}
                                                 </span>
                                             </p>
                                             <p className="text-white">Base Health:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.Health}
                                                 </span>
                                             </p>
                                             {item.PowerDamage && (
                                                 <p className="text-white">Base Power Damage:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.PowerDamage}
                                                     </span>
                                                 </p>
                                             )}
                                             {item.AOERadius > 0 && (
                                                 <p className="text-white">AOE Range:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.AOERadius}
                                                     </span>
                                                 </p>
                                             )}
                                             {item.ChargedPowerRadius > 0 && (
                                                 <p className="text-white">Power Radius:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.ChargedPowerRadius}
                                                     </span>
                                                 </p>
                                             )}
                                             {item.PowerDuration > 0 && (
                                                 <p className="text-white">Power Duration:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.PowerDuration}
                                                     </span>
                                                 </p>
                                             )}
                                         </div>
-                                        <div className="bg-green-200">
-                                            <p className="text-white">
-                                                level 1:
-                                            </p>
-                                            <div className="grid grid-cols-2 bg-green-800">
-                                                <div className="flex flex-col items-end justify-end bg-red-800">
-                                                    <p className="text-white">
-                                                        Begining Health:
-                                                        <span className="text-white">
 
-                                                        </span>
-                                                    </p>
-                                                    <p className="text-white">
-                                                        Begining Damage:
-                                                    </p>
-                                                </div>
-                                                <div className="flex flex-col items-end justify-end bg-blue-800">
-                                                    <p className="text-white">
-                                                        Maximum Health:
-                                                    </p>
-                                                    <p className="text-white">
-                                                        Maximum Damage:
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {/* <AccordionDemo /> */}
+                                        <LevelComponent
+                                            cardStats={item.TechTree2.Slots}
+                                            cardEvolve={item.TechTree2.Evolve}
+                                            baseDmg={Number(item.Damage)}
+                                            baseHealth={Number(item.Health)}
+                                            baseHeal={Number(item.PowerHeal)}
+                                            basePower={Number(item.PowerDamage)}
+                                        />
                                     </ModalContent>
-                                    {/* <ModalFooter className="gap-4">
-                                        <button className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28">
-                                            Cancel
-                                        </button>
-                                        <button className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
-                                            Book Now
-                                        </button>
-                                    </ModalFooter> */}
                                 </ModalBody>
                             </Modal>
                         ))}
@@ -206,63 +179,64 @@ const TabsComponent = ({
                                         </div>
                                         <div className="flex flex-col justify-center items-center">
                                             <p className="text-white">Attack Range:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.AttackRange}
                                                 </span>
                                             </p>
                                             <p className="text-white">Attack Speed:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.TimeInBetweenAttacks}
                                                 </span>
                                             </p>
                                             <p className="text-white">Base Damage:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.Damage}
                                                 </span>
                                             </p>
                                             <p className="text-white">Base Health:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.Health}
                                                 </span>
                                             </p>
                                             {item.PowerDamage && (
                                                 <p className="text-white">Base Power Damage:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.PowerDamage}
                                                     </span>
                                                 </p>
                                             )}
                                             {item.AOERadius > 0 && (
                                                 <p className="text-white">AOE Range:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.AOERadius}
                                                     </span>
                                                 </p>
                                             )}
                                             {item.ChargedPowerRadius > 0 && (
                                                 <p className="text-white">Power Radius:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.ChargedPowerRadius}
                                                     </span>
                                                 </p>
                                             )}
                                             {item.PowerDuration > 0 && (
                                                 <p className="text-white">Power Duration:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.PowerDuration}
                                                     </span>
                                                 </p>
                                             )}
                                         </div>
+
+                                        <LevelComponent
+                                            cardStats={item.TechTree2.Slots}
+                                            cardEvolve={item.TechTree2.Evolve}
+                                            baseDmg={Number(item.Damage)}
+                                            baseHealth={Number(item.Health)}
+                                            baseHeal={Number(item.PowerHeal)}
+                                            basePower={Number(item.PowerDamage)}
+                                        />
                                     </ModalContent>
-                                    {/* <ModalFooter className="gap-4">
-                                    <button className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28">
-                                        Cancel
-                                    </button>
-                                    <button className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
-                                        Book Now
-                                    </button>
-                                </ModalFooter> */}
                                 </ModalBody>
                             </Modal>
                         ))}
@@ -300,63 +274,64 @@ const TabsComponent = ({
                                         </div>
                                         <div className="flex flex-col justify-center items-center">
                                             <p className="text-white">Attack Range:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.AttackRange}
                                                 </span>
                                             </p>
                                             <p className="text-white">Attack Speed:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.TimeInBetweenAttacks}
                                                 </span>
                                             </p>
                                             <p className="text-white">Base Damage:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.Damage}
                                                 </span>
                                             </p>
                                             <p className="text-white">Base Health:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.Health}
                                                 </span>
                                             </p>
                                             {item.PowerDamage && (
                                                 <p className="text-white">Base Power Damage:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.PowerDamage}
                                                     </span>
                                                 </p>
                                             )}
                                             {item.AOERadius > 0 && (
                                                 <p className="text-white">AOE Range:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.AOERadius}
                                                     </span>
                                                 </p>
                                             )}
                                             {item.ChargedPowerRadius > 0 && (
                                                 <p className="text-white">Power Radius:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.ChargedPowerRadius}
                                                     </span>
                                                 </p>
                                             )}
                                             {item.PowerDuration > 0 && (
                                                 <p className="text-white">Power Duration:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.PowerDuration}
                                                     </span>
                                                 </p>
                                             )}
                                         </div>
+
+                                        <LevelComponent
+                                            cardStats={item.TechTree2.Slots}
+                                            cardEvolve={item.TechTree2.Evolve}
+                                            baseDmg={Number(item.Damage)}
+                                            baseHealth={Number(item.Health)}
+                                            baseHeal={Number(item.PowerHeal)}
+                                            basePower={Number(item.PowerDamage)}
+                                        />
                                     </ModalContent>
-                                    {/* <ModalFooter className="gap-4">
-                                     <button className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28">
-                                         Cancel
-                                     </button>
-                                     <button className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
-                                         Book Now
-                                     </button>
-                                 </ModalFooter> */}
                                 </ModalBody>
                             </Modal>
                         ))}
@@ -394,63 +369,64 @@ const TabsComponent = ({
                                         </div>
                                         <div className="flex flex-col justify-center items-center">
                                             <p className="text-white">Attack Range:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.AttackRange}
                                                 </span>
                                             </p>
                                             <p className="text-white">Attack Speed:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.TimeInBetweenAttacks}
                                                 </span>
                                             </p>
                                             <p className="text-white">Base Damage:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.Damage}
                                                 </span>
                                             </p>
                                             <p className="text-white">Base Health:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.Health}
                                                 </span>
                                             </p>
                                             {item.PowerDamage && (
                                                 <p className="text-white">Base Power Damage:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.PowerDamage}
                                                     </span>
                                                 </p>
                                             )}
                                             {item.AOERadius > 0 && (
                                                 <p className="text-white">AOE Range:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.AOERadius}
                                                     </span>
                                                 </p>
                                             )}
                                             {item.ChargedPowerRadius > 0 && (
                                                 <p className="text-white">Power Radius:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.ChargedPowerRadius}
                                                     </span>
                                                 </p>
                                             )}
                                             {item.PowerDuration > 0 && (
                                                 <p className="text-white">Power Duration:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.PowerDuration}
                                                     </span>
                                                 </p>
                                             )}
                                         </div>
+
+                                        <LevelComponent
+                                            cardStats={item.TechTree2.Slots}
+                                            cardEvolve={item.TechTree2.Evolve}
+                                            baseDmg={Number(item.Damage)}
+                                            baseHealth={Number(item.Health)}
+                                            baseHeal={Number(item.PowerHeal)}
+                                            basePower={Number(item.PowerDamage)}
+                                        />
                                     </ModalContent>
-                                    {/* <ModalFooter className="gap-4">
-                                    <button className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28">
-                                        Cancel
-                                    </button>
-                                    <button className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
-                                        Book Now
-                                    </button>
-                                </ModalFooter> */}
                                 </ModalBody>
                             </Modal>
                         ))}
@@ -488,64 +464,64 @@ const TabsComponent = ({
                                         </div>
                                         <div className="flex flex-col justify-center items-center">
                                             <p className="text-white">Attack Range:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.AttackRange}
                                                 </span>
                                             </p>
                                             <p className="text-white">Attack Speed:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.TimeInBetweenAttacks}
                                                 </span>
                                             </p>
                                             <p className="text-white">Base Damage:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.Damage}
                                                 </span>
                                             </p>
                                             <p className="text-white">Base Health:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.Health}
                                                 </span>
                                             </p>
                                             {item.PowerDamage && (
                                                 <p className="text-white">Base Power Damage:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.PowerDamage}
                                                     </span>
                                                 </p>
                                             )}
                                             {item.AOERadius > 0 && (
                                                 <p className="text-white">AOE Range:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.AOERadius}
                                                     </span>
                                                 </p>
                                             )}
                                             {item.ChargedPowerRadius > 0 && (
                                                 <p className="text-white">Power Radius:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.ChargedPowerRadius}
                                                     </span>
                                                 </p>
                                             )}
                                             {item.PowerDuration > 0 && (
                                                 <p className="text-white">Power Duration:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.PowerDuration}
                                                     </span>
                                                 </p>
                                             )}
                                         </div>
 
+                                        <LevelComponent
+                                            cardStats={item.TechTree2.Slots}
+                                            cardEvolve={item.TechTree2.Evolve}
+                                            baseDmg={Number(item.Damage)}
+                                            baseHealth={Number(item.Health)}
+                                            baseHeal={Number(item.PowerHeal)}
+                                            basePower={Number(item.PowerDamage)}
+                                        />
                                     </ModalContent>
-                                    {/* <ModalFooter className="gap-4">
-                                     <button className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28">
-                                         Cancel
-                                     </button>
-                                     <button className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
-                                         Book Now
-                                     </button>
-                                 </ModalFooter> */}
                                 </ModalBody>
                             </Modal>
                         ))}
@@ -583,63 +559,64 @@ const TabsComponent = ({
                                         </div>
                                         <div className="flex flex-col justify-center items-center">
                                             <p className="text-white">Attack Range:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.AttackRange}
                                                 </span>
                                             </p>
                                             <p className="text-white">Attack Speed:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.TimeInBetweenAttacks}
                                                 </span>
                                             </p>
                                             <p className="text-white">Base Damage:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.Damage}
                                                 </span>
                                             </p>
                                             <p className="text-white">Base Health:
-                                                <span className="text-white text-lg font-semibold ml-2">
+                                                <span className=" text-lg font-semibold ml-2 text-green-300">
                                                     {item.Health}
                                                 </span>
                                             </p>
                                             {item.PowerDamage && (
                                                 <p className="text-white">Base Power Damage:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.PowerDamage}
                                                     </span>
                                                 </p>
                                             )}
                                             {item.AOERadius > 0 && (
                                                 <p className="text-white">AOE Range:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.AOERadius}
                                                     </span>
                                                 </p>
                                             )}
                                             {item.ChargedPowerRadius > 0 && (
                                                 <p className="text-white">Power Radius:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.ChargedPowerRadius}
                                                     </span>
                                                 </p>
                                             )}
                                             {item.PowerDuration > 0 && (
                                                 <p className="text-white">Power Duration:
-                                                    <span className="text-white text-lg font-semibold ml-2">
+                                                    <span className=" text-lg font-semibold ml-2 text-green-300">
                                                         {item.PowerDuration}
                                                     </span>
                                                 </p>
                                             )}
                                         </div>
+
+                                        <LevelComponent
+                                            cardStats={item.TechTree2.Slots}
+                                            cardEvolve={item.TechTree2.Evolve}
+                                            baseDmg={Number(item.Damage)}
+                                            baseHealth={Number(item.Health)}
+                                            baseHeal={Number(item.PowerHeal)}
+                                            basePower={Number(item.PowerDamage)}
+                                        />
                                     </ModalContent>
-                                    {/* <ModalFooter className="gap-4">
-                                        <button className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28">
-                                            Cancel
-                                        </button>
-                                        <button className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
-                                            Book Now
-                                        </button>
-                                    </ModalFooter> */}
                                 </ModalBody>
                             </Modal>
                         ))}
