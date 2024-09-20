@@ -6,7 +6,7 @@ import HeroTabs from './HeroTabs'
 import Link from 'next/link'
 import { AnimatedModalDemo } from './Modal'
 import TabsComponent from './TabsComponent'
-import { AccordionDemo } from './AccordionComponent'
+
 const Hero = () => {
     const router = useRouter()
 

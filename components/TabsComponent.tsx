@@ -1,7 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { GlareCard } from '@/components/ui/glare-card';
 import BaseCard from './BaseCard';
-import { AnimatedModalDemo } from "./Modal";
+//import { AnimatedModalDemo } from "./Modal";
 import {
     Modal,
     ModalBody,
@@ -11,7 +11,7 @@ import {
 } from "../components/ui/animated-modal";
 
 import React from 'react'
-import { AccordionDemo } from "./AccordionComponent";
+//import { AccordionDemo } from "./AccordionComponent";
 
 
 
@@ -57,6 +57,7 @@ const TabsComponent = ({
                         {neutralCards.map((item: any, index: number) => (
 
                             <Modal key={index}>
+
                                 <ModalTrigger>
                                     <div className='flex items-center flex-col justify-center h-[400px] w-full' key={index}>
                                         <GlareCard className="flex flex-col items-center justify-center">
@@ -132,13 +133,31 @@ const TabsComponent = ({
                                                 </p>
                                             )}
                                         </div>
-                                        <div>
-                                            <span className="text-white">
-                                                levels
-                                                {
-                                                    item.TechTree2.Slots[0].value
-                                                }
-                                            </span>
+                                        <div className="bg-green-200">
+                                            <p className="text-white">
+                                                level 1:
+                                            </p>
+                                            <div className="grid grid-cols-2 bg-green-800">
+                                                <div className="flex flex-col items-end justify-end bg-red-800">
+                                                    <p className="text-white">
+                                                        Begining Health:
+                                                        <span className="text-white">
+
+                                                        </span>
+                                                    </p>
+                                                    <p className="text-white">
+                                                        Begining Damage:
+                                                    </p>
+                                                </div>
+                                                <div className="flex flex-col items-end justify-end bg-blue-800">
+                                                    <p className="text-white">
+                                                        Maximum Health:
+                                                    </p>
+                                                    <p className="text-white">
+                                                        Maximum Damage:
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
                                         {/* <AccordionDemo /> */}
                                     </ModalContent>
