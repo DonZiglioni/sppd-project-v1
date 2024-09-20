@@ -5,6 +5,8 @@ import { Vortex } from './ui/vortex'
 import HeroTabs from './HeroTabs'
 import Link from 'next/link'
 import { AnimatedModalDemo } from './Modal'
+import TabsComponent from './TabsComponent'
+import { AccordionDemo } from './AccordionComponent'
 const Hero = () => {
     const router = useRouter()
 
@@ -29,7 +31,9 @@ const Hero = () => {
                             Card Stats
                         </button>
                     </Link>
-                    <AnimatedModalDemo />
+                    {/* <AccordionDemo /> */}
+                    {/* <AnimatedModalDemo /> */}
+                    {/* <TabsComponent /> */}
                 </div>
 
 

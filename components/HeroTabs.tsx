@@ -1,8 +1,9 @@
 
 import React from 'react'
-import { Tabs } from './ui/tabs';
+import { Tabs } from '../hooks/tabs';
 import { ExpandableCardDemo } from './CardList';
 import { GlareCard } from '@/components/ui/glare-card';
+import BaseCard from './BaseCard';
 import {
     Modal,
     ModalBody,
@@ -10,7 +11,7 @@ import {
     ModalFooter,
     ModalTrigger,
 } from "../components/ui/animated-modal";
-import BaseCard from './BaseCard';
+import { AnimatedModalDemo } from './Modal';
 interface Props {
     neutralCards: Array<object>;
     adventureCards: Array<object>;
@@ -38,7 +39,7 @@ const HeroTabs = async ({
                     <p>Neutral Tab</p>
                     <section className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                         {neutralCards.map((item: any, index: number) => (
-                            <div className='flex items-center justify-between mx-4 my-4 h-[350px] w-full' key={index}>
+                            <div className='flex items-center flex-col justify-center h-[350px] w-full' key={index}>
                                 <GlareCard className="flex flex-col items-center justify-center">
                                     <BaseCard
                                         cardTheme={item.Theme}
@@ -49,6 +50,7 @@ const HeroTabs = async ({
                                         cardName={item.Name}
                                     />
                                 </GlareCard>
+                                {/* <AnimatedModalDemo /> */}
                             </div>
                         ))}
 

@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import { GlareCard } from '@/components/ui/glare-card'
-import { Tabs } from "@/components/ui/tabs";
+import { Tabs } from "@/hooks/tabs";
 import Image from 'next/image';
 
 const page = () => {

@@ -4,6 +4,7 @@ import { promises as fs } from 'fs';
 
 import BaseCard from '../../components/BaseCard';
 import HeroTabs from '@/components/HeroTabs';
+import TabsComponent from '@/components/TabsComponent';
 
 const page = async () => {
 
@@ -73,8 +74,16 @@ const page = async () => {
     //fantasyCards(data)
     //superheroCards(data)
     return (
-        <div className=" bg-black flex flex-col items-center justify-center min-h-screen h-[5000px] p-8 pb-20 ">
-
+        <div className=" bg-black min-h-screen h-auto p-8 ">
+            <TabsComponent
+                neutralCards={neutralCards(data)}
+                adventureCards={adventureCards(data)}
+                scifiCards={scifiCards(data)}
+                mysticalCards={mysticalCards(data)}
+                fantasyCards={fantasyCards(data)}
+                superheroCards={superheroCards(data)}
+            />
+            {/* 
             <HeroTabs
                 neutralCards={neutralCards(data)}
                 adventureCards={adventureCards(data)}
@@ -83,7 +92,7 @@ const page = async () => {
                 fantasyCards={fantasyCards(data)}
                 superheroCards={superheroCards(data)}
 
-            />
+            /> */}
 
         </div>
     )
