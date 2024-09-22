@@ -162,7 +162,7 @@ const TabsComponent = ({
                                 <ModalBody>
                                     <ModalContent>
                                         <img
-                                            src={`/images/${item.Image.toLowerCase()}.webp`}
+                                            src={`/images/${item.Image}.webp`}
                                             className=" object-cover h-full w-full -z-20 absolute top-0 left-0 "
                                         />
                                         <div className="-z-10 absolute top-0 left-0 h-full w-full bg-black opacity-85" />
@@ -274,7 +274,7 @@ const TabsComponent = ({
                                 <ModalBody>
                                     <ModalContent>
                                         <img
-                                            src={`/images/${item.Image.toLowerCase()}.webp`}
+                                            src={`/images/${item.Image}.webp`}
                                             className=" object-cover h-full w-full -z-20 absolute top-0 left-0 "
                                         />
                                         <div className="-z-10 absolute top-0 left-0 h-full w-full bg-black opacity-85" />
@@ -384,7 +384,7 @@ const TabsComponent = ({
                                 <ModalBody>
                                     <ModalContent>
                                         <img
-                                            src={`/images/${item.Image.toLowerCase()}.webp`}
+                                            src={`/images/${item.Image}.webp`}
                                             className=" object-cover h-full w-full -z-20 absolute top-0 left-0 "
                                         />
                                         <div className="-z-10 absolute top-0 left-0 h-full w-full bg-black opacity-85" />
@@ -494,7 +494,7 @@ const TabsComponent = ({
                                 <ModalBody>
                                     <ModalContent>
                                         <img
-                                            src={`/images/${item.Image.toLowerCase()}.webp`}
+                                            src={`/images/${item.Image}.webp`}
                                             className=" object-cover h-full w-full -z-20 absolute top-0 left-0 "
                                         />
                                         <div className="-z-10 absolute top-0 left-0 h-full w-full bg-black opacity-85" />
@@ -604,7 +604,7 @@ const TabsComponent = ({
                                 <ModalBody>
                                     <ModalContent>
                                         <img
-                                            src={`/images/${item.Image.toLowerCase()}.webp`}
+                                            src={`/images/${item.Image}.webp`}
                                             className=" object-cover h-full w-full -z-20 absolute top-0 left-0 "
                                         />
                                         <div className="-z-10 absolute top-0 left-0 h-full w-full bg-black opacity-85" />
@@ -714,7 +714,7 @@ const TabsComponent = ({
                                 <ModalBody>
                                     <ModalContent>
                                         <img
-                                            src={`/images/${item.Image.toLowerCase()}.webp`}
+                                            src={`/images/${item.Image}.webp`}
                                             className=" object-cover h-full w-full -z-20 absolute top-0 left-0 "
                                         />
                                         <div className="-z-10 absolute top-0 left-0 h-full w-full bg-black opacity-85" />
