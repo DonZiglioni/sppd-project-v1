@@ -39,7 +39,95 @@ const TabsComponent = ({
         console.log(TechTree2);
         return "hello"
     }
-
+    const getDescription = (oldDescription: string, item: any) => {
+        if (item.PowerMaxHPGain && item.PowerDamage && item.PowerDuration) {
+            let string1 = oldDescription.replace('{PowerMaxHPGain}', item.PowerMaxHPGain)
+            let string2 = string1.replace('{PowerDuration}', item.PowerDuration)
+            let string3 = string2.replace('{PowerDamage}', item.PowerDamage)
+            return string3
+        }
+        if (item.PowerDurationMin && item.PowerDurationMax) {
+            let string1 = oldDescription.replace('{PowerDurationMin}', item.PowerDurationMin)
+            let string2 = string1.replace('{PowerDurationMax}', item.PowerDurationMax)
+            return string2
+        }
+        if (item.PowerHeal && item.PowerDuration > 0) {
+            let string1 = oldDescription.replace('{PowerHeal}', item.PowerHeal)
+            let string2 = string1.replace('{PowerDuration}', item.PowerDuration)
+            return string2
+        }
+        if (item.PowerAttackDecrease && item.PowerDuration > 0) {
+            let string1 = oldDescription.replace('{PowerAttackDecrease}', item.PowerAttackDecrease)
+            let string2 = string1.replace('{PowerDuration}', item.PowerDuration)
+            return string2
+        }
+        if (item.PowerPoisonAmount && item.PowerDuration) {
+            let string1 = oldDescription.replace('{PowerPoisonAmount}', item.PowerPoisonAmount)
+            let string2 = string1.replace('{PowerDuration}', item.PowerDuration)
+            return string2
+        }
+        if (item.PowerAttackBoost && item.PowerDuration > 0) {
+            let string1 = oldDescription.replace('{PowerAttackBoost}', item.PowerAttackBoost)
+            let string2 = string1.replace('{PowerDuration}', item.PowerDuration)
+            return string2
+        }
+        if (item.PowerAttackBoost && item.PowerHeal) {
+            let string1 = oldDescription.replace('{PowerAttackBoost}', item.PowerAttackBoost)
+            let string2 = string1.replace('{PowerHeal}', item.PowerHeal)
+            return string2
+        }
+        if (item.PowerHeroHeal && item.PowerHeal) {
+            let string1 = oldDescription.replace('{PowerHeal}', item.PowerHeal)
+            let string2 = string1.replace('{PowerHeroHeal}', item.PowerHeroHeal)
+            return string2
+        }
+        if (item.PowerDamage && item.PowerDuration) {
+            let string1 = oldDescription.replace('{PowerDuration}', item.PowerDuration)
+            let string2 = string1.replace('{PowerDamage}', item.PowerDamage)
+            return string2
+        }
+        if (item.PowerDamage && item.PowerHeroDamage) {
+            let string1 = oldDescription.replace('{PowerDamage}', item.PowerDamage)
+            let string2 = string1.replace('{PowerHeroDamage}', item.PowerHeroDamage)
+            return string2
+        }
+        if (item.PowerMaxHPLoss && item.PowerDamage) {
+            let string1 = oldDescription.replace('{PowerMaxHPLoss}', item.PowerMaxHPLoss)
+            let string2 = string1.replace('{PowerDamage}', item.PowerDamage)
+            return string2
+        }
+        if (item.PowerDamage) {
+            return oldDescription.replace('{PowerDamage}', item.PowerDamage)
+        }
+        if (item.PowerAttackBoost) {
+            return oldDescription.replace('{PowerAttackBoost}', item.PowerAttackBoost)
+        }
+        if (item.PowerDuration) {
+            return oldDescription.replace('{PowerDuration}', item.PowerDuration)
+        }
+        if (item.PowerHeal) {
+            return oldDescription.replace('{PowerHeal}', item.PowerHeal)
+        }
+        if (item.PowerHeroDamage) {
+            return oldDescription.replace('{PowerHeroDamage}', item.PowerHeroDamage)
+        }
+        if (item.PowerHeroHeal) {
+            return oldDescription.replace('{PowerHeroHeal}', item.PowerHeroHeal)
+        }
+        if (item.PowerAttackDecrease) {
+            return oldDescription.replace('{PowerAttackDecrease}', item.PowerAttackDecrease)
+        }
+        if (item.PowerPoisonAmount) {
+            return oldDescription.replace('{PowerPoisonAmount}', item.PowerPoisonAmount)
+        }
+        if (item.PowerMaxHPGain) {
+            return oldDescription.replace('{PowerMaxHealthBoost}', item.PowerMaxHPGain)
+        }
+        if (item.PowerMaxHPLoss) {
+            return oldDescription.replace('{PowerMaxHPLoss}', item.PowerMaxHPLoss)
+        }
+        return "Oh Noooo!"
+    }
 
     return (
         <div>
@@ -79,8 +167,14 @@ const TabsComponent = ({
                                         />
                                         <div className="-z-10 absolute top-0 left-0 h-full w-full bg-black opacity-85" />
 
-                                        <div className="flex justify-center items-center text-xl py-2 mb-2 text-white shadow-lg shadow-black">
-                                            {item.Description}
+                                        <div className="flex justify-center items-center text-xl py-2 mb-2 text-white shadow-md shadow-[rgba(255,255,255,.5)]">
+                                            {
+                                                item.PowerDamage || item.PowerDuration || item.PowerAttackBoost ?
+                                                    getDescription(item.Description, item)
+                                                    :
+                                                    item.Description
+
+                                            }
                                         </div>
                                         <div className="flex flex-col justify-center items-center">
                                             <p className="text-white">Attack Range:
@@ -134,12 +228,23 @@ const TabsComponent = ({
                                         </div>
 
                                         <LevelComponent
+                                            baseHealthBoost={Number(item.PowerMaxHPGain)}
+                                            baseHealthLoss={Number(item.PowerMaxHPLoss)}
+                                            baseDuration={Number(item.PowerDuration)}
+                                            basePoison={Number(item.PowerPoisonAmount)}
+                                            baseDecrease={Number(item.PowerAttackDecrease)}
+                                            baseHeroHeal={Number(item.PowerHeroHeal)}
+                                            powerBoost={(Number(item.PowerAttackBoost))}
+                                            attackRange={Number(item.AttackRange)}
                                             cardStats={item.TechTree2.Slots}
                                             cardEvolve={item.TechTree2.Evolve}
                                             baseDmg={Number(item.Damage)}
                                             baseHealth={Number(item.Health)}
                                             baseHeal={Number(item.PowerHeal)}
                                             basePower={Number(item.PowerDamage)}
+                                            baseHeroPower={Number(item.PowerHeroDamage)}
+                                            cardType={item.Type}
+
                                         />
                                     </ModalContent>
                                 </ModalBody>
@@ -175,7 +280,12 @@ const TabsComponent = ({
                                         <div className="-z-10 absolute top-0 left-0 h-full w-full bg-black opacity-85" />
 
                                         <div className="flex justify-center items-center text-xl py-2 mb-2 text-white shadow-lg shadow-black">
-                                            {item.Description}
+                                            {
+                                                item.PowerDamage || item.PowerDuration || item.PowerAttackDecrease || item.PowerHeroHeal || item.PowerAttackBoost || item.PowerHeal || item.PowerHeroDamage > 0 ?
+                                                    getDescription(item.Description, item)
+                                                    :
+                                                    item.Description
+                                            }
                                         </div>
                                         <div className="flex flex-col justify-center items-center">
                                             <p className="text-white">Attack Range:
@@ -229,12 +339,22 @@ const TabsComponent = ({
                                         </div>
 
                                         <LevelComponent
+                                            baseHealthBoost={Number(item.PowerMaxHPGain)}
+                                            baseHealthLoss={Number(item.PowerMaxHPLoss)}
+                                            baseDuration={Number(item.PowerDuration)}
+                                            basePoison={Number(item.PowerPoisonAmount)}
+                                            baseDecrease={Number(item.PowerAttackDecrease)}
+                                            baseHeroHeal={Number(item.PowerHeroHeal)}
+                                            powerBoost={(Number(item.PowerAttackBoost))}
+                                            attackRange={Number(item.AttackRange)}
                                             cardStats={item.TechTree2.Slots}
                                             cardEvolve={item.TechTree2.Evolve}
                                             baseDmg={Number(item.Damage)}
                                             baseHealth={Number(item.Health)}
                                             baseHeal={Number(item.PowerHeal)}
                                             basePower={Number(item.PowerDamage)}
+                                            baseHeroPower={Number(item.PowerHeroDamage)}
+                                            cardType={item.Type}
                                         />
                                     </ModalContent>
                                 </ModalBody>
@@ -270,7 +390,12 @@ const TabsComponent = ({
                                         <div className="-z-10 absolute top-0 left-0 h-full w-full bg-black opacity-85" />
 
                                         <div className="flex justify-center items-center text-xl py-2 mb-2 text-white shadow-lg shadow-black">
-                                            {item.Description}
+                                            {
+                                                item.PowerDamage || item.PowerDuration || item.PowerPoisonAmount || item.PowerAttackBoost || item.PowerHeal || item.PowerHeroDamage > 0 ?
+                                                    getDescription(item.Description, item)
+                                                    :
+                                                    item.Description
+                                            }
                                         </div>
                                         <div className="flex flex-col justify-center items-center">
                                             <p className="text-white">Attack Range:
@@ -324,12 +449,22 @@ const TabsComponent = ({
                                         </div>
 
                                         <LevelComponent
+                                            baseHealthBoost={Number(item.PowerMaxHPGain)}
+                                            baseHealthLoss={Number(item.PowerMaxHPLoss)}
+                                            baseDuration={Number(item.PowerDuration)}
+                                            basePoison={Number(item.PowerPoisonAmount)}
+                                            baseDecrease={Number(item.PowerAttackDecrease)}
+                                            baseHeroHeal={Number(item.PowerHeroHeal)}
+                                            powerBoost={(Number(item.PowerAttackBoost))}
+                                            attackRange={Number(item.AttackRange)}
                                             cardStats={item.TechTree2.Slots}
                                             cardEvolve={item.TechTree2.Evolve}
                                             baseDmg={Number(item.Damage)}
                                             baseHealth={Number(item.Health)}
                                             baseHeal={Number(item.PowerHeal)}
                                             basePower={Number(item.PowerDamage)}
+                                            baseHeroPower={Number(item.PowerHeroDamage)}
+                                            cardType={item.Type}
                                         />
                                     </ModalContent>
                                 </ModalBody>
@@ -365,7 +500,12 @@ const TabsComponent = ({
                                         <div className="-z-10 absolute top-0 left-0 h-full w-full bg-black opacity-85" />
 
                                         <div className="flex justify-center items-center text-xl py-2 mb-2 text-white shadow-lg shadow-black">
-                                            {item.Description}
+                                            {
+                                                item.PowerDamage || item.PowerDuration || item.PowerAttackBoost || item.PowerHeal || item.PowerHeroDamage > 0 ?
+                                                    getDescription(item.Description, item)
+                                                    :
+                                                    item.Description
+                                            }
                                         </div>
                                         <div className="flex flex-col justify-center items-center">
                                             <p className="text-white">Attack Range:
@@ -419,12 +559,22 @@ const TabsComponent = ({
                                         </div>
 
                                         <LevelComponent
+                                            baseHealthBoost={Number(item.PowerMaxHPGain)}
+                                            baseHealthLoss={Number(item.PowerMaxHPLoss)}
+                                            baseDuration={Number(item.PowerDuration)}
+                                            basePoison={Number(item.PowerPoisonAmount)}
+                                            baseDecrease={Number(item.PowerAttackDecrease)}
+                                            baseHeroHeal={Number(item.PowerHeroHeal)}
+                                            powerBoost={(Number(item.PowerAttackBoost))}
+                                            attackRange={Number(item.AttackRange)}
                                             cardStats={item.TechTree2.Slots}
                                             cardEvolve={item.TechTree2.Evolve}
                                             baseDmg={Number(item.Damage)}
                                             baseHealth={Number(item.Health)}
                                             baseHeal={Number(item.PowerHeal)}
                                             basePower={Number(item.PowerDamage)}
+                                            baseHeroPower={Number(item.PowerHeroDamage)}
+                                            cardType={item.Type}
                                         />
                                     </ModalContent>
                                 </ModalBody>
@@ -460,7 +610,12 @@ const TabsComponent = ({
                                         <div className="-z-10 absolute top-0 left-0 h-full w-full bg-black opacity-85" />
 
                                         <div className="flex justify-center items-center text-xl py-2 mb-2 text-white shadow-lg shadow-black">
-                                            {item.Description}
+                                            {
+                                                item.PowerDamage || item.PowerDuration || item.PowerMaxHPGain || item.PowerMaxHPLoss || item.PowerAttackBoost || item.PowerHeal || item.PowerHeroDamage > 0 ?
+                                                    getDescription(item.Description, item)
+                                                    :
+                                                    item.Description
+                                            }
                                         </div>
                                         <div className="flex flex-col justify-center items-center">
                                             <p className="text-white">Attack Range:
@@ -514,12 +669,22 @@ const TabsComponent = ({
                                         </div>
 
                                         <LevelComponent
+                                            baseHealthBoost={Number(item.PowerMaxHPGain)}
+                                            baseHealthLoss={Number(item.PowerMaxHPLoss)}
+                                            baseDuration={Number(item.PowerDuration)}
+                                            basePoison={Number(item.PowerPoisonAmount)}
+                                            baseDecrease={Number(item.PowerAttackDecrease)}
+                                            baseHeroHeal={Number(item.PowerHeroHeal)}
+                                            powerBoost={(Number(item.PowerAttackBoost))}
+                                            attackRange={Number(item.AttackRange)}
                                             cardStats={item.TechTree2.Slots}
                                             cardEvolve={item.TechTree2.Evolve}
                                             baseDmg={Number(item.Damage)}
                                             baseHealth={Number(item.Health)}
                                             baseHeal={Number(item.PowerHeal)}
                                             basePower={Number(item.PowerDamage)}
+                                            baseHeroPower={Number(item.PowerHeroDamage)}
+                                            cardType={item.Type}
                                         />
                                     </ModalContent>
                                 </ModalBody>
@@ -555,7 +720,12 @@ const TabsComponent = ({
                                         <div className="-z-10 absolute top-0 left-0 h-full w-full bg-black opacity-85" />
 
                                         <div className="flex justify-center items-center text-xl py-2 mb-2 text-white shadow-lg shadow-black">
-                                            {item.Description}
+                                            {
+                                                item.PowerDamage || item.PowerDuration || item.PowerMaxHPGain || item.PowerMaxHPLoss || item.PowerAttackBoost || item.PowerHeal || item.PowerHeroDamage > 0 ?
+                                                    getDescription(item.Description, item)
+                                                    :
+                                                    item.Description
+                                            }
                                         </div>
                                         <div className="flex flex-col justify-center items-center">
                                             <p className="text-white">Attack Range:
@@ -609,12 +779,22 @@ const TabsComponent = ({
                                         </div>
 
                                         <LevelComponent
+                                            baseHealthBoost={Number(item.PowerMaxHPGain)}
+                                            baseHealthLoss={Number(item.PowerMaxHPLoss)}
+                                            baseDuration={Number(item.PowerDuration)}
+                                            basePoison={Number(item.PowerPoisonAmount)}
+                                            baseDecrease={Number(item.PowerAttackDecrease)}
+                                            baseHeroHeal={Number(item.PowerHeroHeal)}
+                                            powerBoost={(Number(item.PowerAttackBoost))}
+                                            attackRange={Number(item.AttackRange)}
                                             cardStats={item.TechTree2.Slots}
                                             cardEvolve={item.TechTree2.Evolve}
                                             baseDmg={Number(item.Damage)}
                                             baseHealth={Number(item.Health)}
                                             baseHeal={Number(item.PowerHeal)}
                                             basePower={Number(item.PowerDamage)}
+                                            baseHeroPower={Number(item.PowerHeroDamage)}
+                                            cardType={item.Type}
                                         />
                                     </ModalContent>
                                 </ModalBody>
