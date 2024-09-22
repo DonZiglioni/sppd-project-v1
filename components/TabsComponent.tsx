@@ -35,10 +35,10 @@ const TabsComponent = ({
     superheroCards,
 }: Props) => {
 
-    const getLevels = ({ TechTree2 }: any) => {
-        console.log(TechTree2);
-        return "hello"
-    }
+    // const getLevels = ({ TechTree2 }: any) => {
+    //     console.log(TechTree2);
+    //     return "hello"
+    // }
     const getDescription = (oldDescription: string, item: any) => {
         if (item.PowerMaxHPGain && item.PowerDamage && item.PowerDuration) {
             let string1 = oldDescription.replace('{PowerMaxHPGain}', item.PowerMaxHPGain)
