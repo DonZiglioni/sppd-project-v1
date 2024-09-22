@@ -338,7 +338,7 @@ const BaseCard = ({ cardTheme, cardType, cardImage, cardRarity, cardCost, cardNa
             {/* Frame */}
             <Image alt={`${cardImage}`} src={theme} height={300} width={380} className='absolute z-10 scale-100 ' />
             {/* Image */}
-            <Image alt={`${cardImage}`} src={`/images/${cardImage.toLowerCase()}.webp`} height={300} width={380} unoptimized className='absolute scale-95' />
+            <Image alt={`${cardImage}`} src={`/images/${cardImage}.webp`} height={300} width={380} unoptimized className='absolute scale-95' />
             {/* Mana */}
             <Image alt={`${cardImage}`} src={`/images/display.png`} height={300} width={380} className='absolute scale-100 ' />
             {/* Mana Cost*/}
